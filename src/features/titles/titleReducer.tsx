@@ -2,11 +2,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Title } from "@Models/title.model";
 
 interface TitleState {
+  loading: boolean;
+  error: boolean;
   entries: Title[];
   entriesBackUp: Title[];
 }
 
 const initialState: TitleState = {
+  loading: false,
+  error: false,
   entries: [],
   entriesBackUp: [],
 };
@@ -15,6 +19,12 @@ export const titleSlice = createSlice({
   name: "title",
   initialState,
   reducers: {
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
+    },
+    setError: (state, action: PayloadAction<boolean>) => {
+      state.error = action.payload;
+    },
     assignTitles: (state, action: PayloadAction<Title[]>) => {
       state.entries = [];
       state.entriesBackUp = [];
@@ -36,7 +46,12 @@ export const titleSlice = createSlice({
   },
 });
 
-export const { assignTitles, filterByYearTitles, cleanFilterByYearTitles } =
-  titleSlice.actions;
+export const {
+  setLoading,
+  setError,
+  assignTitles,
+  filterByYearTitles,
+  cleanFilterByYearTitles,
+} = titleSlice.actions;
 
 export default titleSlice.reducer;

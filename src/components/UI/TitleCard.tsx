@@ -1,4 +1,6 @@
 import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
+import bgPlaceHolder from "@Assets/placeholder.png";
 
 export const TitleCard = ({
   title = "",
@@ -9,12 +11,34 @@ export const TitleCard = ({
   background?: string;
   onclick: any;
 }) => {
+  const [backgroundURL, setbackgroundURL] = useState({
+    error: false,
+    url: background,
+  });
+  const img = new Image();
+  img.src = background;
+
+  useEffect(() => {
+    setbackgroundURL({
+      error: false,
+      url: background,
+    });
+  }, [background]);
+
+  img.onerror = function () {
+    setbackgroundURL({
+      error: true,
+      url: bgPlaceHolder,
+    });
+  };
+  const { url, error } = backgroundURL;
+
   return (
     <Box onClick={onclick}>
       <Box
         sx={{
           backgroundColor: "rgba(0, 0, 0, 0.9)",
-          backgroundImage: `url(${background})`,
+          backgroundImage: `url(${url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           "&:hover": {
@@ -24,7 +48,9 @@ export const TitleCard = ({
         }}
         className="flex justify-center items-center text-center text-white w-36 h-48"
       >
-        {title.toUpperCase()}
+        {
+            error ? title.toUpperCase() : null
+        }
       </Box>
       <Box>Program {title}</Box>
     </Box>
