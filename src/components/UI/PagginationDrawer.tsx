@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "@Features/titles/titleModalReducer";
 
 export const PagginationDrawer = () => {
-  const dispatch = useDispatch();
   const data = useSelector((state: any) => state.title.entries);
+  const dispatch = useDispatch();
 
   const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
@@ -65,7 +65,7 @@ export const PagginationDrawer = () => {
             <TitleCard
               title={title.title}
               background={title.images["Poster Art"].url}
-              onclick={dispatch(openModal(title))}
+              onclick={() => dispatch(openModal(title))}
             />
           </Box>
         ))}

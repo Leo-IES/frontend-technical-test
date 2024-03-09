@@ -1,7 +1,8 @@
-import { Box, Modal, Typography, Zoom } from "@mui/material";
+import { Box, IconButton, Modal, Typography, Zoom } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { TitleModalState } from "@Models/titleModal.model";
 import { closeModal } from "@Features/titles/titleModalReducer";
+import CloseIcon from "@mui/icons-material/Close";
 
 export const TitleModal = () => {
   const dispatch = useDispatch();
@@ -10,11 +11,7 @@ export const TitleModal = () => {
   const { url } = images["Poster Art"];
 
   return (
-    <Modal
-      open={data.open}
-      onClose={() => dispatch(closeModal())}
-      className="border-none"
-    >
+    <Modal open={data.open} className="border-none">
       <Zoom
         in={data.open}
         easing={{
@@ -29,6 +26,12 @@ export const TitleModal = () => {
               <Typography variant="h6" component="span" className="uppercase">
                 <strong>{title}</strong>
               </Typography>
+              <IconButton
+                aria-label="close"
+                onClick={() => dispatch(closeModal())}
+              >
+                <CloseIcon />
+              </IconButton>
             </Box>
             <Box className="w-full grid grid-cols-2 mt-4">
               <Box className="flex justify-center">
