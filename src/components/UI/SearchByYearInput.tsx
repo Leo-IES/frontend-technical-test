@@ -2,8 +2,14 @@ import { IconButton, TextField, Tooltip } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  cleanFilterByYearTitles,
+  filterByYearTitles,
+} from "@Features/titles/titleReducer";
 
-export const SearchByYearInput = ({ search, cleanSearch }: any) => {
+export const SearchByYearInput = () => {
+  const dispatch = useDispatch();
   const [value, setValue] = useState("");
 
   const handleInputChange = ({ target }: any) => {
@@ -11,10 +17,10 @@ export const SearchByYearInput = ({ search, cleanSearch }: any) => {
     setValue(value);
   };
   const searchYear = () => {
-    search(value);
+    dispatch(filterByYearTitles(Number(value)));
   };
   const cleanYear = () => {
-    cleanSearch();
+    dispatch(cleanFilterByYearTitles());
     setValue("");
   };
   return (
@@ -34,9 +40,9 @@ export const SearchByYearInput = ({ search, cleanSearch }: any) => {
         className="w-1/2 sm:w-1/4 md:1/8 mr-4"
       />
       <Tooltip title="Search">
-      <IconButton size="small" onClick={searchYear}>
-        <SearchIcon />
-      </IconButton>
+        <IconButton size="small" onClick={searchYear}>
+          <SearchIcon />
+        </IconButton>
       </Tooltip>
       <Tooltip title="Clean Search">
         <IconButton size="small" onClick={cleanYear}>

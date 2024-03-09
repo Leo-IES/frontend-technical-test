@@ -20,12 +20,19 @@ export const PagginationDrawer = () => {
   const currentData = data.slice(startIndex, endIndex);
 
   useEffect(() => {
+    reLoadTotalPages();
+  }, [data]);
+  useEffect(() => {
+    reLoadTotalPages();
+  }, [itemsPerPage]);
+
+  const reLoadTotalPages = () => {
     if (data.length % itemsPerPage != 0) {
       setTotalPages(Math.floor(data.length / itemsPerPage) + 1);
       return;
     }
-    setTotalPages(data.length / itemsPerPage);
-  }, [data.length != 0 && itemsPerPage]);
+    setTotalPages(Number(data.length / itemsPerPage));
+  };
 
   const handlePageChange = (event: any, value: number) => {
     setPage(value);
@@ -34,24 +41,11 @@ export const PagginationDrawer = () => {
     const { value } = target;
     setItemsPerPage(value);
   };
-  const handleSearchInputChanges = (event: any) => {
-    console.log("event", Number(event));
-    // currentData = currentData.filter(
-    //   (title: Title) => title.releaseYear == Number(event)
-    // );
-  };
-  const handleSearchInputClean = () => {
-    console.log("event clean");
-    // currentData = data.slice(startIndex, endIndex);
-  };
 
   return (
     <>
       <Box className="flex justify-center">
-        <SearchByYearInput
-          search={handleSearchInputChanges}
-          cleanSearch={handleSearchInputClean}
-        />
+        <SearchByYearInput />
       </Box>
       <Box className="flex justify-center sm:justify-end mb-4 mt-4">
         <ItemsPerPageSelect
