@@ -51,23 +51,21 @@ export const PagginationDrawer = ({ data = [] }: { data?: Title[] }) => {
           cleanSearch={handleSearchInputClean}
         />
       </Box>
-      <Box className="flex justify-end">
+      <Box className="flex justify-center sm:justify-end mb-4 mt-4">
         <ItemsPerPageSelect
           itemsPerPage={itemsPerPage}
           handleItemsPerPageChange={handleItemsPerPageChange}
         />
       </Box>
-      <Box className="flex justify-center">
-        <Box className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-8 ">
-          {currentData.map((title: Title) => (
-            <Box key={title.title}>
-              <TitleCard
-                title={title.title}
-                background={title.images["Poster Art"].url}
-              />
-            </Box>
-          ))}
-        </Box>
+      <Box className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-8">
+        {currentData.map((title: Title) => (
+          <Box className='flex justify-center' key={title.title}>
+            <TitleCard
+              title={title.title}
+              background={title.images["Poster Art"].url}
+            />
+          </Box>
+        ))}
       </Box>
       <Box className="flex justify-center mt-4 mb-4">
         <Pagination

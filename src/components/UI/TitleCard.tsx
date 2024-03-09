@@ -8,7 +8,7 @@ export const TitleCard = ({
   background?: string;
 }) => {
   return (
-    <>
+    <Box>
       <Box
         sx={{
           backgroundColor: "rgba(0, 0, 0, 0.9)",
@@ -17,7 +17,7 @@ export const TitleCard = ({
           backgroundPosition: "center",
           "&:hover": {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
-            border:'1px solid white'
+            border: "1px solid white",
           },
         }}
         className="flex justify-center items-center text-center text-white w-36 h-48"
@@ -25,6 +25,6 @@ export const TitleCard = ({
         {title.toUpperCase()}
       </Box>
       <Box>Program {title}</Box>
-    </>
+    </Box>
   );
 };
