@@ -3,12 +3,14 @@ import { Box } from "@mui/material";
 export const TitleCard = ({
   title = "",
   background = "",
+  onclick,
 }: {
   title?: string;
   background?: string;
+  onclick: any;
 }) => {
   return (
-    <Box>
+    <Box onClick={onclick}>
       <Box
         sx={{
           backgroundColor: "rgba(0, 0, 0, 0.9)",

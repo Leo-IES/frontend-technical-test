@@ -1,6 +1,5 @@
-
-export const Loading = () => {
+export const LoadingComponent = () => {
   return (
-    <div>Loading</div>
+    <div>Loading...</div>
   )
 }

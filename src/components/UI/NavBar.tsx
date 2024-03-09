@@ -1,7 +1,9 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const NavBar = () => {
+  const location = useLocation();
+
   return (
     <AppBar position="static">
       <Toolbar
@@ -11,11 +13,9 @@ export const NavBar = () => {
         }}
       >
         <Box sx={{ flexGrow: 1 }}>
-          {/* <Link to={"/"}>     */}
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-              DEMO Streaming
-            </Typography>
-          {/* </Link> */}
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            <Link to={"/"}>DEMO Streaming</Link>
+          </Typography>
         </Box>
         <Button
           color="inherit"
@@ -52,7 +52,12 @@ export const NavBar = () => {
       >
         <Box>
           <Typography variant="h6" component="div">
-            Popular Titles
+            Popular{" "}
+            {location.pathname == "/"
+              ? "Titles"
+              : location.pathname == "/series"
+              ? "Series"
+              : "Movies"}
           </Typography>
         </Box>
       </Box>

@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import taskReducer from "../features/task/taskReducer";
+import titleReducer from "@Features/titles/titleReducer";
+import titleModalReducer from "@Features/titles/titleModalReducer";
 
 const store = configureStore({
   reducer: {
-    tasks: taskReducer,
+    title: titleReducer,
+    titleModal: titleModalReducer,
   },
 });
 

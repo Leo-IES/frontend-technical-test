@@ -5,15 +5,19 @@ import { TitleCard } from "./TitleCard";
 import { TitleModal } from "./TitleModal";
 import { SearchByYearInput } from "./SearchByYearInput";
 import { ItemsPerPageSelect } from "./ItemsPerPageSelect";
+import { useDispatch, useSelector } from "react-redux";
+import { openModal } from "@Features/titles/titleModalReducer";
 
-export const PagginationDrawer = ({ data = [] }: { data?: Title[] }) => {
+export const PagginationDrawer = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((state: any) => state.title.entries);
+
   const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
   const [totalPages, setTotalPages] = useState(1);
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentData = data.slice(startIndex, endIndex);
-  const [modalState, setModalState] = useState(false);
 
   useEffect(() => {
     if (data.length % itemsPerPage != 0) {
@@ -40,9 +44,7 @@ export const PagginationDrawer = ({ data = [] }: { data?: Title[] }) => {
     console.log("event clean");
     // currentData = data.slice(startIndex, endIndex);
   };
-  const closeModal = () => {
-    setModalState(false);
-  };
+
   return (
     <>
       <Box className="flex justify-center">
@@ -59,10 +61,11 @@ export const PagginationDrawer = ({ data = [] }: { data?: Title[] }) => {
       </Box>
       <Box className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-8">
         {currentData.map((title: Title) => (
-          <Box className='flex justify-center' key={title.title}>
+          <Box className="flex justify-center" key={title.title}>
             <TitleCard
               title={title.title}
               background={title.images["Poster Art"].url}
+              onclick={dispatch(openModal(title))}
             />
           </Box>
         ))}
@@ -74,7 +77,7 @@ export const PagginationDrawer = ({ data = [] }: { data?: Title[] }) => {
           onChange={handlePageChange}
         />
       </Box>
-      <TitleModal open={modalState} handleClose={closeModal} />
+      <TitleModal />
     </>
   );
 };

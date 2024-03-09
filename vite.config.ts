@@ -11,6 +11,7 @@ export default defineConfig({
       '@Services': '/src/services',
       '@Assets': '/src/assets',
       '@Models': '/src/models',
+      '@Features': '/src/features',
     },
   },
 })
