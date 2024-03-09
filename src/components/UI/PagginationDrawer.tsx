@@ -1,15 +1,10 @@
 import { Title } from "@Models/title.model";
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Pagination,
-  Select,
-} from "@mui/material";
+import { Box, Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
 import { TitleCard } from "./TitleCard";
 import { TitleModal } from "./TitleModal";
+import { SearchByYearInput } from "./SearchByYearInput";
+import { ItemsPerPageSelect } from "./ItemsPerPageSelect";
 
 export const PagginationDrawer = ({ data = [] }: { data?: Title[] }) => {
   const [page, setPage] = useState(1);
@@ -35,25 +30,32 @@ export const PagginationDrawer = ({ data = [] }: { data?: Title[] }) => {
     const { value } = target;
     setItemsPerPage(value);
   };
+  const handleSearchInputChanges = (event: any) => {
+    console.log("event", Number(event));
+    // currentData = currentData.filter(
+    //   (title: Title) => title.releaseYear == Number(event)
+    // );
+  };
+  const handleSearchInputClean = () => {
+    console.log("event clean");
+    // currentData = data.slice(startIndex, endIndex);
+  };
   const closeModal = () => {
     setModalState(false);
   };
   return (
     <>
+      <Box className="flex justify-center">
+        <SearchByYearInput
+          search={handleSearchInputChanges}
+          cleanSearch={handleSearchInputClean}
+        />
+      </Box>
       <Box className="flex justify-end">
-        <FormControl sx={{ m: 2, minWidth: 80 }} size="small">
-          <InputLabel id="Items per Page">Items per Page</InputLabel>
-          <Select
-            labelId="Items per Page"
-            value={itemsPerPage}
-            label="Items per Page"
-            onChange={handleItemsPerPageChange}
-          >
-            <MenuItem value={5}>5</MenuItem>
-            <MenuItem value={10}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-          </Select>
-        </FormControl>
+        <ItemsPerPageSelect
+          itemsPerPage={itemsPerPage}
+          handleItemsPerPageChange={handleItemsPerPageChange}
+        />
       </Box>
       <Box className="flex justify-center">
         <Box className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-8 ">
