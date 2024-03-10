@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import background from "../../assets/placeholder.png";
+import background from "@Assets/placeholder.png";
 
 export const SectionCard = ({
   title = "",
@@ -10,7 +10,7 @@ export const SectionCard = ({
   route?: string;
 }) => {
   return (
-    <Box className="flex justify-center">
+    <Box data-testid='sectioncard-component' className="flex justify-center">
       <Link to={`./${route}`}>
         <Box
           sx={{

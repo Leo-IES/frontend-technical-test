@@ -20,9 +20,10 @@
       "@Services/*": ["services/*"],
       "@Assets/*": ["assets/*"],
       "@Models/*": ["models/*"],
-      "@Features/*": ["features/*"],
+      "@Features/*": ["features/*"]
     },
-
+    "types": [ "@testing-library/jest-dom"],
+    "esModuleInterop": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
