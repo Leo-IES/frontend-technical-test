@@ -1,16 +1,21 @@
 import { Box, IconButton, Typography } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
-import twitterIcon from "../../assets/social/twitter-white.svg";
-import facebookIcon from "../../assets/social/facebook-white.svg";
-import instagramIcon from "../../assets/social/instagram-white.svg";
-import appStoreIcon from "../../assets/store/app-store.svg";
-import playStoreIcon from "../../assets/store/play-store.svg";
-import windowsStoreIcon from "../../assets/store/windows-store.svg";
-
+import twitterIcon from "@Assets/social/twitter-white.svg";
+import facebookIcon from "@Assets/social/facebook-white.svg";
+import instagramIcon from "@Assets/social/instagram-white.svg";
+import appStoreIcon from "@Assets/store/app-store.svg";
+import playStoreIcon from "@Assets/store/play-store.svg";
+import windowsStoreIcon from "@Assets/store/windows-store.svg";
 
 export const Footer = () => {
+  const location = useLocation();
   return (
-    <footer>
+    <footer
+      className={
+        location.pathname == "/" ? "absolute bottom-0 w-full" : "staticw-full"
+      }
+    >
       <Box
         sx={{
           paddingLeft: "6em !important",
@@ -23,8 +28,8 @@ export const Footer = () => {
       >
         <Box>
           <Typography variant="body1" component="span">
-            Home | Terms and Conditions | Privacy Policy | Collection Statement
-            | Help | Manage Account
+            <Link to={"/"}>Home</Link> | Terms and Conditions | Privacy Policy |
+            Collection Statement | Help | Manage Account
           </Typography>
         </Box>
 
@@ -33,8 +38,8 @@ export const Footer = () => {
             Copyright &copy; DEMO Streaming. All Rights Reserved.
           </Typography>
         </Box>
-        <Box className="mt-8 flex">
-          <Box className="flex-1">
+        <Box className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Box className="grid sm:flex grid-cols-1 sm:grid-cols-3 gap-4 justify-center sm:justify-start">
             <IconButton>
               <img src={facebookIcon} className="w-8" />
             </IconButton>
@@ -45,15 +50,15 @@ export const Footer = () => {
               <img src={instagramIcon} className="w-8" />
             </IconButton>
           </Box>
-          <Box className="flex flex-1 justify-end">
+          <Box className="grid grid-cols-1 xl:flex sm:grid-cols-1 md:grid-cols-3 gap-4 justify-center  md:justify-end">
             <IconButton>
-              <img src={appStoreIcon} className="w-28" />
+              <img src={appStoreIcon} className="min-w-28" />
             </IconButton>
             <IconButton>
-              <img src={playStoreIcon} className="w-28" />
+              <img src={playStoreIcon} className="min-w-28" />
             </IconButton>
             <IconButton>
-              <img src={windowsStoreIcon} className="w-28" />
+              <img src={windowsStoreIcon} className="min-w-28" />
             </IconButton>
           </Box>
         </Box>

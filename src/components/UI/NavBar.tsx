@@ -12,33 +12,37 @@ export const NavBar = () => {
           paddingRight: "6em !important",
         }}
       >
-        <Box sx={{ flexGrow: 1 }}>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            <Link to={"/"}>DEMO Streaming</Link>
-          </Typography>
+        <Box className="grid grid-cols-1 sm:flex justify-between w-full">
+          <Box className="flex text-center mb-4 mt-4 grow sm:grow-0 sm:text-start sm:mb-0 sm:mt-0">
+            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+              <Link to={"/"}>DEMO Streaming</Link>
+            </Typography>
+          </Box>
+          <Box className='grid grid-cols-2 mb-4 sm:mb-0 sm:flex justify-end'>
+            <Button
+              color="inherit"
+              sx={{
+                textTransform: "none",
+              }}
+            >
+              Log in
+            </Button>
+            <Button
+              sx={{
+                backgroundColor: "#3c3d3b",
+                color: "white",
+                textTransform: "none",
+                marginLeft: 2,
+                borderRadius: 0,
+                "&:hover": {
+                  backgroundColor: "#3c3d3b",
+                },
+              }}
+            >
+              Start your free trial
+            </Button>
+          </Box>
         </Box>
-        <Button
-          color="inherit"
-          sx={{
-            textTransform: "none",
-          }}
-        >
-          Log in
-        </Button>
-        <Button
-          sx={{
-            backgroundColor: "#3c3d3b",
-            color: "white",
-            textTransform: "none",
-            marginLeft: 2,
-            borderRadius: 0,
-            "&:hover": {
-              backgroundColor: "#3c3d3b",
-            },
-          }}
-        >
-          Start your free trial
-        </Button>
       </Toolbar>
       <Box
         sx={{

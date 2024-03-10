@@ -1,4 +1,4 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import bgPlaceHolder from "@Assets/placeholder.png";
 
@@ -61,7 +61,7 @@ export const TitleCard = ({
           <CircularProgress />
         </Box>
       ) : (
-        <Box onClick={onclick}>
+        <Box onClick={onclick} className='max-w-36'>
           <Box
             sx={{
               backgroundColor: "rgba(0, 0, 0, 0.9)",
@@ -77,7 +77,11 @@ export const TitleCard = ({
           >
             {error ? title.toUpperCase() : null}
           </Box>
-          <Box>Program {title}</Box>
+          <Box>
+            <Typography variant="body1" component="span">
+              Program {title}
+            </Typography>
+          </Box>
         </Box>
       )}
     </>

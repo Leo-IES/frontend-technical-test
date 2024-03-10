@@ -11,6 +11,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+body{
   position: relative;
   min-height: 100vh;
 }
@@ -19,12 +23,6 @@
   padding-left: 6em !important;
   padding-right: 6em !important;
   padding-bottom: 2.5rem;
-  margin-top: 2rem;
-  margin-bottom: 10rem;
+  padding-top: 2.5rem;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
