@@ -61,8 +61,9 @@ export const TitleCard = ({
           <CircularProgress />
         </Box>
       ) : (
-        <Box onClick={onclick} className='max-w-36'>
+        <Box onClick={onclick} className="max-w-36">
           <Box
+            data-testid="titleBG"
             sx={{
               backgroundColor: "rgba(0, 0, 0, 0.9)",
               backgroundImage: `url(${url})`,
