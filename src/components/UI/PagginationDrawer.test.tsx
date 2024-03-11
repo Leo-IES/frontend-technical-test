@@ -81,8 +81,7 @@ describe('PagginationDrawer', () => {
     );
 
     expect(screen.getByRole('navigation')).toBeInTheDocument();
-    // totalPages calculation assertion; 60 entries, 20 per page, should result in 3 pages
-    expect(screen.getAllByRole('button').length).toBe(5); // Include navigation arrows
+    expect(screen.getAllByRole('button').length).toBe(5); 
   });
 
   test('handles no data scenario gracefully', () => {
