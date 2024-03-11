@@ -76,3 +76,7 @@ Me hubiera gustado hacer pruebas unitarias mas extensas, sin embargo creo que cu
 #### ¿Qué haría de manera diferente si se le asignara más tiempo?
 
 Me gustaría agregar mas animaciones y extender las pruebas unitarias.
+
+## NOTA FINAL
+
+Se envió un correo el día Viernes 8 de Marzo del 2024 con unas dudas respecto a la descripción de un punto en especifico en los requerimientos de la prueba, al no conseguir respuesta el desarrollo de la prueba comenzó y se finalizo. Sin embargo en caso de ser necesario puedo trabajar en los ajustes necesarios para ajustarme a los lineamientos requeridos.
