@@ -80,3 +80,5 @@ Me gustaría agregar mas animaciones y extender las pruebas unitarias.
 ## NOTA FINAL
 
 Se envió un correo el día Viernes 8 de Marzo del 2024 con unas dudas respecto a la descripción de un punto en especifico en los requerimientos de la prueba, al no conseguir respuesta el desarrollo de la prueba comenzó y se finalizo. Sin embargo en caso de ser necesario puedo trabajar en los ajustes necesarios para ajustarme a los lineamientos requeridos.
+
+Estos cambios costarían de el cambio de Flex por Grid para el ajuste de los componentes y estilos responsive. Y el de Fetch por Axios como librería alterna. Calculo que estos cambios me tomarían aproximadamente 1 día para ser completados.
