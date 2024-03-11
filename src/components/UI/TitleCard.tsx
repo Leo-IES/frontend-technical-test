@@ -9,7 +9,7 @@ export const TitleCard = ({
 }: {
   title?: string;
   background?: string;
-  onclick: any;
+  onclick: ()=>void;
 }) => {
   const [backgroundURL, setbackgroundURL] = useState({
     error: false,

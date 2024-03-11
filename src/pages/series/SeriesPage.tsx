@@ -20,7 +20,7 @@ export const SeriesPage = () => {
   const getSeriesInfo = () => {
     dispatch(setLoading(true));
     getAllSeriesInfo()
-      .then((data: Title[] | any) => {
+      .then((data: Title[] | undefined) => {
         dispatch(setError(false));
         dispatch(setLoading(false));
         dispatch(assignTitles(data));

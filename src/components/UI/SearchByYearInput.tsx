@@ -12,7 +12,7 @@ export const SearchByYearInput = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
 
-  const handleInputChange = ({ target }: any) => {
+  const handleInputChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
     setValue(value);
   };

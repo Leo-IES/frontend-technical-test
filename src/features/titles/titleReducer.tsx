@@ -25,17 +25,18 @@ export const titleSlice = createSlice({
     setError: (state, action: PayloadAction<boolean>) => {
       state.error = action.payload;
     },
-    assignTitles: (state, action: PayloadAction<Title[]>) => {
+    assignTitles: (state, action: PayloadAction<Title[] | undefined>) => {
       state.entries = [];
       state.entriesBackUp = [];
-      state.entries.push(...action.payload);
-      state.entriesBackUp.push(...action.payload);
+      state.entries.push(...action.payload!);
+      state.entriesBackUp.push(...action.payload!);
     },
     filterByYearTitles: (state, action: PayloadAction<number>) => {
       const year = action.payload;
       if (year < 2010 || year > 2024) {
         return;
       }
+      state.entries = state.entriesBackUp
       state.entries = state.entries.filter(
         (title: Title) => title.releaseYear == action.payload
       );

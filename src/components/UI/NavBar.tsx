@@ -29,7 +29,7 @@ export const NavBar = () => {
             </Button>
             <Button
               sx={{
-                backgroundColor: "#3c3d3b",
+                backgroundColor: "#3c3d3b !important",
                 color: "white",
                 textTransform: "none",
                 marginLeft: 2,

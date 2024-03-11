@@ -1,5 +1,5 @@
 import { Box, IconButton, Typography } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import twitterIcon from "@Assets/social/twitter-white.svg";
 import facebookIcon from "@Assets/social/facebook-white.svg";
@@ -9,22 +9,16 @@ import playStoreIcon from "@Assets/store/play-store.svg";
 import windowsStoreIcon from "@Assets/store/windows-store.svg";
 
 export const Footer = () => {
-  const location = useLocation();
   return (
-    <footer
-    data-testid='footer-component'
-      className={
-        location.pathname == "/" ? "absolute bottom-0 w-full" : "staticw-full"
-      }
-    >
+    <footer data-testid="footer-component">
       <Box
         sx={{
-          paddingLeft: "6em !important",
-          paddingRight: "6em !important",
+          padding: "2em 6em",
           backgroundColor: "#1e1e1e",
           color: "#aba9ab",
-          paddingTop: "2em !important",
-          paddingBottom: "2em !important",
+          width:'100%',
+          position: 'absolute',
+          bottom: 0,
         }}
       >
         <Box>
