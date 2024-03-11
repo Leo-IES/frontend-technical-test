@@ -19,7 +19,7 @@ const config: Config = {
   // clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: true,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
@@ -94,6 +94,9 @@ const config: Config = {
     '@Assets/(.*)$': '<rootDir>/src/assets/$1',
     '@Components/(.*)$': '<rootDir>/src/components/$1',
     '@Pages/(.*)$': '<rootDir>/src/pages/$1',
+    '@Services/(.*)$': '<rootDir>/src/services/$1',
+    '@Features/(.*)$': '<rootDir>/src/features/$1',
+    'store/(.*)$': 'identity-obj-proxy',
   },
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

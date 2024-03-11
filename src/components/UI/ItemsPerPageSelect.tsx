@@ -1,11 +1,11 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 export const ItemsPerPageSelect = ({
   itemsPerPage,
   handleItemsPerPageChange,
 }: any) => {
   return (
-      <FormControl className="w-5/12 sm:w-3/12 md:1/6" size="small">
+      <FormControl className="w-5/12 sm:w-3/12 md:1/6" size="small" data-testid="itemsPerPageSelect-component">
         <InputLabel id="Items per Page">Items per Page</InputLabel>
         <Select
           labelId="Items per Page"

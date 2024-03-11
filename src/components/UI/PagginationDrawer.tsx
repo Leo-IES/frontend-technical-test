@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "@Features/titles/titleModalReducer";
 
 export const PagginationDrawer = () => {
-  const data = useSelector((state: any) => state.title.entries);
   const dispatch = useDispatch();
+  const data = useSelector((state: any) => state.title.entries);
 
   const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
@@ -35,6 +35,7 @@ export const PagginationDrawer = () => {
   };
 
   const handlePageChange = (event: any, value: number) => {
+    console.log("event", event);
     setPage(value);
   };
   const handleItemsPerPageChange = ({ target }: any) => {
@@ -43,7 +44,7 @@ export const PagginationDrawer = () => {
   };
 
   return (
-    <>
+    <Box data-testid="pagginationDrawer-component">
       <Box className="flex justify-center">
         <SearchByYearInput />
       </Box>
@@ -72,6 +73,6 @@ export const PagginationDrawer = () => {
         />
       </Box>
       <TitleModal />
-    </>
+    </Box>
   );
 };

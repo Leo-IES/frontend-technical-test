@@ -12,6 +12,7 @@ export const Footer = () => {
   const location = useLocation();
   return (
     <footer
+    data-testid='footer-component'
       className={
         location.pathname == "/" ? "absolute bottom-0 w-full" : "staticw-full"
       }

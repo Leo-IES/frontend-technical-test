@@ -5,12 +5,10 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { Box } from "@mui/material";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
 import { HomePage } from "./pages/home/HomePage";
-
 import { MoviesPage } from "./pages/movies/MoviesPage";
 import { SeriesPage } from "./pages/series/SeriesPage";
 

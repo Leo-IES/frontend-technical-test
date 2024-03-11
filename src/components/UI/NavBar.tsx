@@ -5,7 +5,7 @@ export const NavBar = () => {
   const location = useLocation();
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" data-testid="navbar-component">
       <Toolbar
         sx={{
           paddingLeft: "6em !important",
@@ -18,7 +18,7 @@ export const NavBar = () => {
               <Link to={"/"}>DEMO Streaming</Link>
             </Typography>
           </Box>
-          <Box className='grid grid-cols-2 mb-4 sm:mb-0 sm:flex justify-end'>
+          <Box className="grid grid-cols-2 mb-4 sm:mb-0 sm:flex justify-end">
             <Button
               color="inherit"
               sx={{

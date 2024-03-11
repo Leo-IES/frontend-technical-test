@@ -1,5 +1,5 @@
 export const LoadingComponent = () => {
   return (
-    <div>Loading...</div>
+    <div data-testid="loading-component">Loading...</div>
   )
 }

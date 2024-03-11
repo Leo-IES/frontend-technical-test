@@ -11,6 +11,7 @@ import {
 } from "@Features/titles/titleReducer";
 import { LoadingComponent } from "@Components/UI/Loading";
 import { ErrorComponent } from "@Components/UI/Error";
+import { Box } from "@mui/material";
 
 export const MoviesPage = () => {
   const loading = useSelector((state: any) => state.title.loading);
@@ -37,13 +38,15 @@ export const MoviesPage = () => {
 
   return (
     <MainLayout>
-      {loading ? (
-        <LoadingComponent />
-      ) : error ? (
-        <ErrorComponent />
-      ) : (
-        <PagginationDrawer />
-      )}
+      <Box data-testid='moviespage-component'>
+        {loading ? (
+          <LoadingComponent />
+        ) : error ? (
+          <ErrorComponent />
+        ) : (
+          <PagginationDrawer />
+        )}
+      </Box>
     </MainLayout>
   );
 };
